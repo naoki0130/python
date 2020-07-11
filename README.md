@@ -1,7 +1,7 @@
 # python の学習記録
 
 ## pyxel
-[pyxel参考サイト](https://cpp-learning.com/pyxel_tutorial/)
+- [pyxel参考サイト](https://cpp-learning.com/pyxel_tutorial/)
 
 ## pyqt5
 
