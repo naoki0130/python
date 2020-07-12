@@ -1,5 +1,5 @@
 # python の学習記録
-https://wbd.ms/share/v2/aHR0cHM6Ly93aGl0ZWJvYXJkLm1pY3Jvc29mdC5jb20vYXBpL3YxLjAvd2hpdGVib2FyZHMvcmVkZWVtLzhjOGVmMjk0NmY3NDQ3YTNiMGRmODI4MTViYzFlNmJjX0JCQTcxNzYyLTEyRTAtNDJFMS1CMzI0LTVCMTMxRjQyNEUzRA==
+https://wbd.ms/share/v2/aHR0cHM6Ly93aGl0ZWJvYXJkLm1pY3Jvc29mdC5jb20vYXBpL3YxLjAvd2hpdGVib2FyZHMvcmVkZWVtLzU3NDYwMTI0YjllMzQ4ZWFhYTE1ZDE4MGQyYWMzNmUzX0JCQTcxNzYyLTEyRTAtNDJFMS1CMzI0LTVCMTMxRjQyNEUzRA==
 
 ## pyxel
 - [pyxel参考サイト](https://cpp-learning.com/pyxel_tutorial/)
