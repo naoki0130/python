@@ -1,4 +1,5 @@
 import sys
+import os
 import random as rd
 import csv
 from PyQt5.QtWidgets import (
@@ -50,12 +51,6 @@ class ExampleWidget(QWidget):
         self.label4 = QLabel(self)
         self.label4.setPixmap(QPixmap("figures/R.png"))
 
-        # task画像更新
-        self.timer = QTimer()
-        self.timer.timeout.connect(self.update_task)
-        self.timer.timeout.connect(self.question)
-        self.timer.start(1500)  # every 10,000 milliseconds
-
         # buttonの設定
         img = QPixmap("figures/m.jpg")
         self.button1 = QPushButton("")
@@ -75,6 +70,10 @@ class ExampleWidget(QWidget):
         self.btn_save.clicked.connect(self.save_csv)
         self.btn_save.setShortcut(Qt.Key_Right)
 
+        self.btn_start = QPushButton("Start", self)
+        self.btn_start.clicked.connect(self.start)
+        self.btn_start.setShortcut(Qt.Key_Left)
+
         # レイアウト配置
         self.task1 = QVBoxLayout()
         self.task1.addSpacing(100)
@@ -89,6 +88,7 @@ class ExampleWidget(QWidget):
         self.layout = QVBoxLayout()
         self.layout.addWidget(self.button1, alignment=(Qt.AlignBottom))
         self.layout.addWidget(self.button2, alignment=(Qt.AlignTop))
+        self.layout.addWidget(self.btn_start)
         self.layout.addWidget(self.btn_save)
 
         self.task_all = QHBoxLayout()
@@ -143,16 +143,50 @@ class ExampleWidget(QWidget):
         self.Q_num.setText("Q：" + str(self.q_num))
 
     def save_csv(self):
-        with open("Q.csv", "w") as f:
-            writer = csv.writer(f)
-            writer.writerow(self.Q)
-        with open("correct.csv", "w") as f:
-            writer = csv.writer(f)
-            writer.writerow(self.correct)
-        with open("incorrect.csv", "w") as f:
-            writer = csv.writer(f)
-            writer.writerow(self.incorrect)
+        Q_num = self.csv_search("Q")
+        C_num = self.csv_search("c")
+        I_num = self.csv_search("i")
+        if Q_num == 0:
+            with open("output/Q0.csv", "w") as f:
+                writer = csv.writer(f)
+                writer.writerow(self.Q)
+        else:
+            with open("output/Q" + str(Q_num) + ".csv", "w") as f:
+                writer = csv.writer(f)
+                writer.writerow(self.Q)
+        if C_num == 0:
+            with open("output/correct0.csv", "w") as f:
+                writer = csv.writer(f)
+                writer.writerow(self.correct)
+        else:
+            with open("output/correct" + str(C_num) + ".csv", "w") as f:
+                writer = csv.writer(f)
+                writer.writerow(self.correct)
+        if I_num == 0:
+            with open("output/incorrect0.csv", "w") as f:
+                writer = csv.writer(f)
+                writer.writerow(self.incorrect)
+        else:
+            with open("output/incorrect" + str(I_num) + ".csv", "w") as f:
+                writer = csv.writer(f)
+                writer.writerow(self.incorrect)
         sys.exit(app.exec_())
+
+    def start(self):
+        # task画像更新
+        self.timer = QTimer()
+        self.timer.timeout.connect(self.update_task)
+        self.timer.timeout.connect(self.question)
+        self.timer.start(1500)  # every 10,000 milliseconds
+
+    def csv_search(self, C):
+        csv_file = [
+            i for i in os.listdir(path="output") if i[-3:] == "csv" and i[0:1] == C
+        ]
+        if not csv_file:
+            return 0
+        else:
+            return len(csv_file)
 
 
 if __name__ == "__main__":
