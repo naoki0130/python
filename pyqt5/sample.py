@@ -147,27 +147,27 @@ class ExampleWidget(QWidget):
         C_num = self.csv_search("c")
         I_num = self.csv_search("i")
         if Q_num == 0:
-            with open("output/Q0.csv", "w") as f:
+            with open("task/Q0.csv", "w") as f:
                 writer = csv.writer(f)
                 writer.writerow(self.Q)
         else:
-            with open("output/Q" + str(Q_num) + ".csv", "w") as f:
+            with open("task/Q" + str(Q_num) + ".csv", "w") as f:
                 writer = csv.writer(f)
                 writer.writerow(self.Q)
         if C_num == 0:
-            with open("output/correct0.csv", "w") as f:
+            with open("correct/correct0.csv", "w") as f:
                 writer = csv.writer(f)
                 writer.writerow(self.correct)
         else:
-            with open("output/correct" + str(C_num) + ".csv", "w") as f:
+            with open("correct/correct" + str(C_num) + ".csv", "w") as f:
                 writer = csv.writer(f)
                 writer.writerow(self.correct)
         if I_num == 0:
-            with open("output/incorrect0.csv", "w") as f:
+            with open("incorrect/incorrect0.csv", "w") as f:
                 writer = csv.writer(f)
                 writer.writerow(self.incorrect)
         else:
-            with open("output/incorrect" + str(I_num) + ".csv", "w") as f:
+            with open("incorrect/incorrect" + str(I_num) + ".csv", "w") as f:
                 writer = csv.writer(f)
                 writer.writerow(self.incorrect)
         sys.exit(app.exec_())
