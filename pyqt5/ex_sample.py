@@ -22,6 +22,8 @@ class ExampleWidget(QWidget):
     Q = []
     correct = []
     incorrect = []
+    time = []
+    start = 0
 
     def __init__(self):
         super().__init__()
@@ -103,9 +105,11 @@ class ExampleWidget(QWidget):
 
     def button_do1(self):
         self.correct.append(self.q_num)
+        self.time.append(time.time() - self.start)
 
     def button_do2(self):
         self.incorrect.append(self.q_num)
+        self.time.append(time.time() - self.start)
 
     def update_task(self):
 
@@ -145,9 +149,10 @@ class ExampleWidget(QWidget):
         self.Q_num.setText("Q：" + str(self.q_num))
 
     def save_csv(self):
-        Q_num = self.csv_search("Q")
-        C_num = self.csv_search("c")
-        I_num = self.csv_search("i")
+        Q_num = self.task_csv_search("Q")
+        C_num = self.co_csv_search("c")
+        I_num = self.inco_csv_search("i")
+        T_num = self.time_csv_search("t")
         if Q_num == 0:
             with open("task/Q0.csv", "w") as f:
                 writer = csv.writer(f)
@@ -172,6 +177,14 @@ class ExampleWidget(QWidget):
             with open("incorrect/incorrect" + str(I_num) + ".csv", "w") as f:
                 writer = csv.writer(f)
                 writer.writerow(self.incorrect)
+        if T_num == 0:
+            with open("time/time0.csv", "w") as f:
+                writer = csv.writer(f)
+                writer.writerow(self.time)
+        else:
+            with open("task/time" + str(T_num) + ".csv", "w") as f:
+                writer = csv.writer(f)
+                writer.writerow(self.time)
         sys.exit(app.exec_())
 
     def start(self):
@@ -181,9 +194,36 @@ class ExampleWidget(QWidget):
         self.timer.timeout.connect(self.question)
         self.timer.start(1500)  # every 10,000 milliseconds
 
-    def csv_search(self, C):
+    def co_csv_search(self, C):
         csv_file = [
-            i for i in os.listdir(path="output") if i[-3:] == "csv" and i[0:1] == C
+            i for i in os.listdir(path="correct") if i[-3:] == "csv" and i[0:1] == C
+        ]
+        if not csv_file:
+            return 0
+        else:
+            return len(csv_file)
+
+    def inco_csv_search(self, C):
+        csv_file = [
+            i for i in os.listdir(path="incorrect") if i[-3:] == "csv" and i[0:1] == C
+        ]
+        if not csv_file:
+            return 0
+        else:
+            return len(csv_file)
+
+    def task_csv_search(self, C):
+        csv_file = [
+            i for i in os.listdir(path="task") if i[-3:] == "csv" and i[0:1] == C
+        ]
+        if not csv_file:
+            return 0
+        else:
+            return len(csv_file)
+
+    def time_csv_search(self, C):
+        csv_file = [
+            i for i in os.listdir(path="time") if i[-3:] == "csv" and i[0:1] == C
         ]
         if not csv_file:
             return 0

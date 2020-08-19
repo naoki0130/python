@@ -33,6 +33,13 @@ def calc(co, inco, t):
     incorrect = task_inco - inco
     h = correct + incorrect
     result = (t_len - h) / t_len * 100
+    print(t_len)
+    print(co)
+    print(inco)
+    print(task_co)
+    print(task_inco)
+    print(correct)
+    print(incorrect)
     print(result)
 
 

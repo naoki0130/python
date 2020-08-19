@@ -1,0 +1,19 @@
+{% load static %}
+<html>
+
+<head>
+</head>
+
+<body>
+    {% block extrahead %}
+    <link href="{% static 'css/main.css' %}" rel="stylesheet">
+    {% endblock %}
+
+    <h1>Hello Wold!!!</h1>
+
+    <p class="test">p_tag class</p>
+    <p>p_tag normal</p>
+
+</body>
+
+</html>

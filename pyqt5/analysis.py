@@ -62,8 +62,9 @@ def main():
     incorrect = file_open_incorrect(incorrect_csv_file[choose_incorrect_csv])
     task = file_open_task(task_csv_file[choose_task_csv])
 
-    # print(correct)
-    # print(incorrect)
+    print(correct)
+    print(incorrect)
+    print(calc.task(task))
     # print(task)
     # print(len(task))
     calc.calc(correct, incorrect, task)
