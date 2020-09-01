@@ -120,12 +120,14 @@ class ExampleWidget(QWidget):
         if rd_lr % 2 == 0:
             if rd_LR % 2 == 0:
                 new_label1 = QPixmap("figures/task_L.jpg")
+                # self.label1.setPixmap(QPixmap("figures/white.jpg"))
                 self.label1.setPixmap(new_label1)
                 new_label2 = QPixmap("figures/white.jpg")
                 self.label2.setPixmap(new_label2)
                 self.Q.append("left_L_correct")
             else:
                 new_label1 = QPixmap("figures/task_R.jpg")
+                # self.label1.setPixmap(QPixmap("figures/white.jpg"))
                 self.label1.setPixmap(new_label1)
                 new_label2 = QPixmap("figures/white.jpg")
                 self.label2.setPixmap(new_label2)
@@ -133,12 +135,14 @@ class ExampleWidget(QWidget):
         else:
             if rd_LR % 2 == 0:
                 new_label2 = QPixmap("figures/task_L.jpg")
+                # self.label2.setPixmap(QPixmap("figures/white.jpg"))
                 self.label2.setPixmap(new_label2)
                 new_label1 = QPixmap("figures/white.jpg")
                 self.label1.setPixmap(new_label1)
                 self.Q.append("right_L_incorrect")
             else:
                 new_label2 = QPixmap("figures/task_R.jpg")
+                # self.label2.setPixmap(QPixmap("figures/white.jpg"))
                 self.label2.setPixmap(new_label2)
                 new_label1 = QPixmap("figures/white.jpg")
                 self.label1.setPixmap(new_label1)
@@ -153,6 +157,7 @@ class ExampleWidget(QWidget):
         C_num = self.co_csv_search("c")
         I_num = self.inco_csv_search("i")
         T_num = self.time_csv_search("t")
+
         if Q_num == 0:
             with open("task/Q0.csv", "w") as f:
                 writer = csv.writer(f)
@@ -182,7 +187,7 @@ class ExampleWidget(QWidget):
                 writer = csv.writer(f)
                 writer.writerow(self.time)
         else:
-            with open("task/time" + str(T_num) + ".csv", "w") as f:
+            with open("time/time" + str(T_num) + ".csv", "w") as f:
                 writer = csv.writer(f)
                 writer.writerow(self.time)
         sys.exit(app.exec_())
@@ -190,9 +195,9 @@ class ExampleWidget(QWidget):
     def start(self):
         # task画像更新
         self.timer = QTimer()
+        self.timer.start(1500)  # every 10,000 milliseconds
         self.timer.timeout.connect(self.update_task)
         self.timer.timeout.connect(self.question)
-        self.timer.start(1500)  # every 10,000 milliseconds
 
     def co_csv_search(self, C):
         csv_file = [
