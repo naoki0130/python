@@ -33,3 +33,40 @@ def calc_task_mean_time(time):
 
     return mean_time
 
+
+def calc_task_not_ans(dic):
+    correct = 0
+    incorrect = 0
+    not_ans = 0
+    task = len(dic)
+
+    for i in dic:
+        if dic[i] == "o":
+            correct += 1
+        elif dic[i] == "x":
+            incorrect += 1
+        else:
+            not_ans += 1
+
+    resalt = round((not_ans / task) * 100, 1)
+
+    return resalt
+
+
+def calc_task_ex_not_ans(dic):
+    correct = 0
+    incorrect = 0
+    not_ans = 0
+    task = len(dic)
+
+    for i in dic:
+        if dic[i] == "o":
+            correct += 1
+        elif dic[i] == "x":
+            incorrect += 1
+        else:
+            not_ans += 1
+
+    resalt = round((correct / (task - not_ans)) * 100, 1)
+
+    return resalt

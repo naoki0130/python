@@ -118,7 +118,23 @@ def main():
     for i in resalt:
         print(str(i) + ":" + str(resalt[i]))
 
-    # calc_task_ans = calc.calc_task_ans(resalt)
+    calc_task_ans = calc.calc_task_ans(resalt)
+
+    print()
+    print("--------------------------------------")
+    print("正答率：" + str(calc_task_ans))
+
+    calc_task_not_ans = calc.calc_task_not_ans(resalt)
+
+    print()
+    print("--------------------------------------")
+    print("未解答率：" + str(calc_task_not_ans))
+
+    calc_task_ex_not_ans = calc.calc_task_ex_not_ans(resalt)
+
+    print()
+    print("--------------------------------------")
+    print("未解答を除いた正答率：" + str(calc_task_ex_not_ans))
 
 
 if __name__ == "__main__":
