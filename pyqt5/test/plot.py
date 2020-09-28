@@ -2,6 +2,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib import rcParams
 
+plt.rcParams["font.size"] = 11
+
 rcParams["font.family"] = "sans-serif"
 rcParams["font.sans-serif"] = [
     "Hiragino Maru Gothic Pro",
@@ -27,7 +29,7 @@ plt.bar(
     left1,
     m,
     color="r",
-    label="M",
+    label="subjectA",
     tick_label=label,
     align="center",
     width=0.3,
@@ -37,7 +39,7 @@ plt.bar(
     left2,
     y,
     color="b",
-    label="Y",
+    label="subjectB",
     tick_label=label,
     align="center",
     width=0.3,
@@ -47,15 +49,14 @@ plt.bar(
     left3,
     a,
     color="g",
-    label="A",
+    label="subjectC",
     tick_label=label,
     align="center",
     width=0.3,
     zorder=2,
 )
 
-plt.legend(loc="upper center", bbox_to_anchor=(0.5, -0.15), ncol=3)
-plt.title("ゲーム正答率")
+plt.legend(loc='lower center', bbox_to_anchor=(.5, 1.0), ncol=3)
 plt.xlabel("対話形式")
 plt.ylabel("正答率(%)")
 plt.grid(zorder=1)
@@ -75,7 +76,7 @@ plt.bar(
     left1,
     m,
     color="r",
-    label="M",
+    label="subjectA",
     tick_label=label,
     align="center",
     width=0.3,
@@ -85,7 +86,7 @@ plt.bar(
     left2,
     y,
     color="b",
-    label="Y",
+    label="subjectB",
     tick_label=label,
     align="center",
     width=0.3,
@@ -95,15 +96,14 @@ plt.bar(
     left3,
     a,
     color="g",
-    label="A",
+    label="subjectC",
     tick_label=label,
     align="center",
     width=0.3,
     zorder=2,
 )
 
-plt.legend(loc="upper center", bbox_to_anchor=(0.5, -0.15), ncol=3)
-plt.title("ゲーム未解答率")
+plt.legend(loc='lower center', bbox_to_anchor=(.5, 1.0), ncol=3)
 plt.xlabel("対話形式")
 plt.ylabel("未解答率(%)")
 plt.grid(zorder=1)
@@ -123,7 +123,7 @@ plt.bar(
     left1,
     m,
     color="r",
-    label="M",
+    label="subjectA",
     tick_label=label,
     align="center",
     width=0.3,
@@ -133,7 +133,7 @@ plt.bar(
     left2,
     y,
     color="b",
-    label="Y",
+    label="subjectB",
     tick_label=label,
     align="center",
     width=0.3,
@@ -143,15 +143,14 @@ plt.bar(
     left3,
     a,
     color="g",
-    label="A",
+    label="subjectC",
     tick_label=label,
     align="center",
     width=0.3,
     zorder=2,
 )
 
-plt.legend(loc="upper center", bbox_to_anchor=(0.5, -0.15), ncol=3)
-plt.title("ゲーム正答率（未解答を除く）")
+plt.legend(loc='lower center', bbox_to_anchor=(.5, 1.0), ncol=3)
 plt.xlabel("対話形式")
 plt.ylabel("正答率(%)")
 plt.grid(zorder=1)
@@ -170,7 +169,7 @@ plt.bar(
     left1,
     y,
     color="b",
-    label="Y",
+    label="subjectB",
     tick_label=label,
     align="center",
     width=0.3,
@@ -180,15 +179,14 @@ plt.bar(
     left2,
     a,
     color="g",
-    label="A",
+    label="subjectC",
     tick_label=label,
     align="center",
     width=0.3,
     zorder=2,
 )
 
-plt.legend(loc="upper center", bbox_to_anchor=(0.5, -0.15), ncol=3)
-plt.title("ゲーム平均解答時間")
+plt.legend(loc='lower center', bbox_to_anchor=(.5, 1.0), ncol=3)
 plt.xlabel("対話形式")
 plt.ylabel("ミリ秒(ms)")
 plt.grid(zorder=1)
@@ -209,7 +207,7 @@ plt.bar(
     left1,
     m,
     color="r",
-    label="M",
+    label="subjectA",
     tick_label=label,
     align="center",
     width=0.3,
@@ -219,7 +217,7 @@ plt.bar(
     left2,
     y,
     color="b",
-    label="Y",
+    label="subjectB",
     tick_label=label,
     align="center",
     width=0.3,
@@ -229,15 +227,14 @@ plt.bar(
     left3,
     a,
     color="g",
-    label="A",
+    label="subjectC",
     tick_label=label,
     align="center",
     width=0.3,
     zorder=2,
 )
 
-plt.legend(loc="upper center", bbox_to_anchor=(0.5, -0.15), ncol=3)
-plt.title("平均対話思考時間")
+plt.legend(loc='lower center', bbox_to_anchor=(.5, 1.0), ncol=3)
 plt.xlabel("対話形式")
 plt.ylabel("ミリ秒(ms)")
 plt.grid(zorder=1)
@@ -257,7 +254,7 @@ plt.bar(
     left1,
     m,
     color="r",
-    label="M",
+    label="subjectA",
     tick_label=label,
     align="center",
     width=0.3,
@@ -267,7 +264,7 @@ plt.bar(
     left2,
     y,
     color="b",
-    label="Y",
+    label="subjectB",
     tick_label=label,
     align="center",
     width=0.3,
@@ -277,19 +274,17 @@ plt.bar(
     left3,
     a,
     color="g",
-    label="A",
+    label="subjectC",
     tick_label=label,
     align="center",
     width=0.3,
     zorder=2,
 )
 
-plt.legend(loc="upper center", bbox_to_anchor=(0.5, -0.15), ncol=3)
-plt.title("平均対話発話時間")
+plt.legend(loc='lower center', bbox_to_anchor=(.5, 1.0), ncol=3)
 plt.xlabel("対話形式")
 plt.ylabel("ミリ秒(ms)")
 
 plt.grid(zorder=1)
 
 plt.show()
-
