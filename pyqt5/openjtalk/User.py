@@ -1,21 +1,29 @@
 import jtalk
+import time
+import talk
 
-text = input()
-if text == "１":
-    t = "あなたについて教えてください"
-elif text == "２":
-    t = "２つ目の情報はなんですか"
-elif text == "３":
-    t = "３つ目の情報はなんですか"
-elif text == "４":
-    t = "4つ目の情報はなんですか"
-elif text == "５":
-    t = "５つ目の情報はなんですか"
-elif text == "６":
-    t = "ありがとうございました"
-elif text == "７":
-    t = "すみません　聞き取れませんでした　もう一度お願いします"
-else:
-    t = text
+text_box = ["あなたについて教えてください", "２つ目の情報はなんですか", "３つ目の情報はなんですか", "4つ目の情報はなんですか",
+            "５つ目の情報はなんですか", "ありがとうございました"]
 
-jtalk.jtalk(t)
+jtalk.jtalk(text_box[0])
+text = talk.say_confirm()
+talk.roop_or_not(text)
+
+
+jtalk.jtalk(text_box[1])
+text = talk.say_confirm()
+talk.roop_or_not(text)
+
+jtalk.jtalk(text_box[2])
+text = talk.say_confirm()
+talk.roop_or_not(text)
+
+jtalk.jtalk(text_box[3])
+text = talk.say_confirm()
+talk.roop_or_not(text)
+
+jtalk.jtalk(text_box[4])
+text = talk.say_confirm()
+talk.roop_or_not(text)
+
+jtalk.jtalk(text_box[5])
